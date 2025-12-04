@@ -32,7 +32,7 @@ export const Contact = () => {
           },
           (error) => {
             console.log(error.text);
-            alert("Failed to send message. Please try again."); // Keep alert only for errors
+            alert("Failed to send message. Please try again.");
             setIsSending(false);
           }
         );
@@ -43,7 +43,7 @@ export const Contact = () => {
     <section id="contact" className="py-24 bg-linear-to-b from-black to-[#8D0240]/20 relative z-10">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16">
-          {/* Info Section (Unchanged) */}
+          {/* Info Section */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Get In <span className="text-[#8D0240]">Touch</span></h2>
             <p className="text-gray-400 mb-10 leading-relaxed">
@@ -67,7 +67,7 @@ export const Contact = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="text-white font-medium mb-1">Location</h4>
+                  <h4 className="text-white font-medium mb-1">Locations</h4>
                   <p className="text-gray-400">Columbus, OH | Long Island, NY</p>
                 </div>
               </div>
