@@ -90,7 +90,6 @@ export const Navbar = () => {
                   key={link.name} 
                   href={link.href}
                   onClick={(e) => handleScrollToSection(e, link.href)}
-                  // Updated Hover Color: Murrey
                   className="text-gray-300 hover:text-[#8D0240] text-lg font-medium"
                 >
                   {link.name}
