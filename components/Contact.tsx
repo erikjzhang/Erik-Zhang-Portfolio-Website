@@ -18,10 +18,10 @@ export const Contact = () => {
     if (formRef.current) {
       emailjs
         .sendForm(
-          'service_f645kaw',     
-          'template_mawbmlm',    
+          'service_f645kaw',    // NEXT_PUBLIC_EMAILJS_SERVICE_ID     
+          'template_mawbmlm',   // NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
           formRef.current,
-          '0nDpH-Xqrtt2SyQwx'      
+          '0nDpH-Xqrtt2SyQwx'   // NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
         )
         .then(
           (result) => {
