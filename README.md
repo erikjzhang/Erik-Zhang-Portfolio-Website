@@ -96,7 +96,7 @@ Projects, experience, and skills are modular and easily updated.
 
 2. **Navigate to the Project Directory:**
    ```bash
-   cd portfolio-next
+   cd Erik-Zhang-Portfolio-Website
    ```
 
 3. **Install Dependencies:**
@@ -108,9 +108,9 @@ Projects, experience, and skills are modular and easily updated.
 
 4. **(Optional) Configure EmailJS for Contact Form**
     ```bash
-    NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-    NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-    NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+    NEXT_PUBLIC_EMAILJS_SERVICE_ID = your_service_id
+    NEXT_PUBLIC_EMAILJS_TEMPLATE_ID = your_template_id
+    NEXT_PUBLIC_EMAILJS_PUBLIC_KEY = your_public_key
     ```
 
 5. **Start the Development Server:**
