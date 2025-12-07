@@ -37,9 +37,13 @@ export const Background = () => {
       '??', '++', '--', '/**/'
     ];
     
+    // Detect mobile to adjust density and size
+    const isMobile = window.innerWidth < 768;
+
     const generatedParticles: any[] = [];
-    const particleCount = 75; 
-    const minDistance = 7; 
+    // Reduce count significantly for mobile to prevent clutter
+    const particleCount = isMobile ? 30 : 75; 
+    const minDistance = isMobile ? 15 : 7; 
 
     for (let i = 0; i < particleCount; i++) {
       let valid = false;
@@ -51,11 +55,15 @@ export const Background = () => {
         left = Math.random() * 100;
         top = Math.random() * 100;
         
-        // Simple check to keep center area somewhat clear for Hero text
-        // (Assuming hero text is roughly in the middle 40% of screen vertically and horizontally)
-        const inCenterZone = left > 30 && left < 70 && top > 30 && top < 70;
+        // Clear zone logic
+        // On mobile, the content is narrower, so we widen the clear zone horizontally
+        // but perhaps shorten it vertically or adjust based on layout.
+        // Horizontal: 10-90% clear on mobile vs 30-70% on desktop? 
+        // Actually, text is usually full width on mobile. Let's keep the center clear.
+        const horizontalZone = isMobile ? (left > 10 && left < 90) : (left > 30 && left < 70);
+        const verticalZone = top > 20 && top < 80;
         
-        if (inCenterZone) {
+        if (horizontalZone && verticalZone) {
            valid = false;
            attempts++;
            continue; 
@@ -77,10 +85,13 @@ export const Background = () => {
 
       if (valid || attempts >= 50) {
         const symbol = symbols[i % symbols.length];
-        const size = 20 + Math.random() * 30; 
+        // Smaller symbols on mobile
+        const sizeBase = isMobile ? 14 : 20;
+        const sizeVariance = isMobile ? 10 : 30;
+        const size = sizeBase + Math.random() * sizeVariance; 
+        
         const speed = 0.1 + Math.random() * 0.3; 
         
-        // Random phase for floating animation so they don't all move in sync
         const floatPhase = Math.random() * Math.PI * 2;
         const floatSpeed = 0.5 + Math.random() * 0.5;
 
@@ -100,19 +111,14 @@ export const Background = () => {
     setParticles(generatedParticles);
   }, []);
 
-  // Opacity Calculation:
-  // Starts at 1.0 (fully visible based on individual particle opacity)
-  // Fades down as users scroll. 
-  // At scrollY = 300 (start of scroll), it begins fading rapidly.
-  // By scrollY = 800 (About section), it settles at a low opacity (e.g., 0.15)
-  const fadeStart = 100; // Start fading after 100px scroll
-  const fadeEnd = 600;   // Fully faded by 600px scroll
+  // Opacity Calculation
+  const fadeStart = 100; 
+  const fadeEnd = 600;   
   
-  // Calculate a multiplier between 1 and 0.15
   let opacityMultiplier = 1;
   if (offsetY > fadeStart) {
       const progress = Math.min(1, (offsetY - fadeStart) / (fadeEnd - fadeStart));
-      opacityMultiplier = 1 - (progress * 0.85); // Fades down to 0.15 (1 - 0.85)
+      opacityMultiplier = 1 - (progress * 0.85); 
   }
 
   return (
@@ -128,6 +134,11 @@ export const Background = () => {
         const floatX = Math.sin(time * p.floatSpeed + p.floatPhase) * 15; 
         const floatY = Math.cos(time * p.floatSpeed + p.floatPhase) * 15; 
 
+        // Lower base opacity for mobile to improve text readability
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+        const baseOpacity = isMobile ? 0.15 : 0.2;
+        const variableOpacity = isMobile ? 0.15 : 0.3;
+
         return (
           <div
             key={p.id}
@@ -137,7 +148,7 @@ export const Background = () => {
               top: `${p.top}%`,
               fontSize: `${p.size}px`,
               transform: `translateY(-${transformY}px) translate3d(${floatX}px, ${floatY}px, 0)`, 
-              opacity: (0.2 + (Math.sin(p.id) * 0.3)) * opacityMultiplier, 
+              opacity: (baseOpacity + (Math.sin(p.id) * variableOpacity)) * opacityMultiplier, 
               transition: 'opacity 0.2s ease-out, transform 0.1s linear', 
               willChange: 'transform, opacity'
             }}
