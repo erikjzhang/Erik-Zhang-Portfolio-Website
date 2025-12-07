@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 
 export const Background = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const prevWidthRef = useRef<number>(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -11,6 +12,9 @@ export const Background = () => {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    // Set initial width
+    prevWidthRef.current = window.innerWidth;
 
     let animationFrameId: number;
     let particles: any[] = [];
@@ -89,6 +93,13 @@ export const Background = () => {
 
     const handleResize = () => {
       if (!canvas) return;
+      
+      const currentWidth = window.innerWidth;
+      const widthChanged = currentWidth !== prevWidthRef.current;
+
+      // Update ref
+      prevWidthRef.current = currentWidth;
+
       // Handle High DPI displays
       const dpr = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * dpr;
@@ -101,8 +112,9 @@ export const Background = () => {
       // Scale context
       ctx.scale(dpr, dpr);
       
-      // Re-initialize particles to fit new screen
-      initParticles();
+      if (widthChanged || particles.length === 0) {
+        initParticles();
+      }
     };
 
     // Main Render Loop
@@ -152,7 +164,8 @@ export const Background = () => {
     };
 
     // Initial setup
-    handleResize();
+    initParticles(); // Ensure particles exist before first render
+    handleResize();  // Set canvas size
     window.addEventListener('resize', handleResize);
     render();
 
