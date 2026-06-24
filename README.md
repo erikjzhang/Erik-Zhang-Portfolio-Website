@@ -15,7 +15,7 @@ Welcome to my personal portfolio website!
 
 This project is a full showcase of my technical skills, software engineering work, and professional experience. Built with a focus on modern design, it features a **Murrey Red & Oxford Blue dark mode theme**, **interactive particle backgrounds**, and **smooth animations** throughout.
 
-Whether you're a recruiter, developer, or curious visitor, this site highlights my work as a **Computer Science & Engineering student at The Ohio State University**.
+Whether you're a recruiter, developer, or curious visitor, this site highlights my work as a Computer Science & Engineering student at The Ohio State University.
 
 ---
 
@@ -31,10 +31,10 @@ Animated symbols (`</>`, `{}`, `&&`) float throughout the site with scroll-react
 Optimized for desktop, tablet, and mobile screens with a custom mobile nav menu.
 
 ### ⚡ Smooth Animations  
-Powered by **Framer Motion** for page transitions and scroll-triggered effects.
+Powered by Framer Motion for page transitions and scroll-triggered effects.
 
 ### 📧 Working Contact Form  
-Integrated using **EmailJS**, enabling serverless real-time messaging.
+Integrated using EmailJS, enabling serverless real-time messaging.
 
 ### 💼 Dynamic Content System  
 Projects, experience, and skills are modular and easily updated.
