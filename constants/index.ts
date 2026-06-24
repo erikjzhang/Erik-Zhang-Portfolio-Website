@@ -43,12 +43,18 @@ export const PROJECTS = [
 
 export const EXPERIENCE = [
   {
+    role: "ETS Student Assistant",
+    company: "Engineering Technology Services",
+    period: "May 2026 - Present",
+    desc: "Providing Tier 1 technical support for network and wireless connectivity across classrooms and computer labs. Maintaining facility operations by managing maintenance requests and fulfilling administrative tasks."
+  },
+  {
     role: "Junior Web Developer",
     company: "MMC Digital Lab",
     period: "Aug 2024 - Present",
     desc: "Developing websites for the MMC Scholars Program using Next.js and React. Managing full development lifecycle and integrating new features."
-  },
-  {
+  }
+  /*{
     role: "Barista",
     company: "Kung Fu Tea",
     period: "Apr 2025 - July 2025",
@@ -59,5 +65,5 @@ export const EXPERIENCE = [
     company: "Macy's, Inc.",
     period: "Dec 2024 - Jan 2025",
     desc: "Facilitated high-volume transactions and maintained sales floor organization during peak holiday season."
-  }
+  }*/
 ];
