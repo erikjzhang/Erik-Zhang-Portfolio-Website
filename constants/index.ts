@@ -46,7 +46,7 @@ export const EXPERIENCE = [
     role: "ETS Student Assistant",
     company: "Engineering Technology Services",
     period: "May 2026 - Present",
-    desc: "Providing Tier 1 technical support for network and wireless connectivity across classrooms and computer labs. Maintaining facility operations by managing maintenance requests and fulfilling administrative tasks."
+    desc: "Providing Tier 1 technical support for campus networks and computer labs. Fulfilling maintenance requests and daily administrative operations."
   },
   {
     role: "Junior Web Developer",
