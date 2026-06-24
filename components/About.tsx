@@ -23,7 +23,9 @@ export const About = () => {
                 Bachelor of Science in Computer Science & Engineering student at <strong className="text-white">The Ohio State University</strong>, minoring in Music.
               </p>
               <p className="text-gray-400 leading-relaxed">
-                My journey involves blending technical rigor with creative problem solving. Currently, I work as a Junior Web Developer at the MMC Digital Lab, maintaining sites and building new features using the modern React stack.
+                My journey involves blending technical rigor with creative problem solving. 
+                Currently, I work as a Junior Web Developer at the MMC Digital Lab and a Student Assistant for the Engineering Technology Services (ETS), 
+                maintaining scholar websites and building new features using the modern React stack on top of providing Tier 1 technical support across campus.
               </p>
             </div>
 
@@ -36,7 +38,7 @@ export const About = () => {
                 {EXPERIENCE.map((job, idx) => (
                   <div key={idx} className="relative">
                     {/* Timeline Dot */}
-                    <span className="absolute -left-[37px] top-1 h-4 w-4 rounded-full bg-[#8D0240] border-4 border-black" />
+                    <span className="absolute -left-[41px] top-1 h-4 w-4 rounded-full bg-[#8D0240] border-4 border-black" />
                     <h4 className="text-white font-medium">{job.role}</h4>
                     <p className="text-sm text-[#b00552] mb-2">{job.company} | {job.period}</p>
                     <p className="text-sm text-gray-500">{job.desc}</p>
